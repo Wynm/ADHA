@@ -11,6 +11,10 @@ import PlanExport from './components/PlanExport.jsx';
 import Cases from './components/Cases.jsx';
 import Lexicon from './components/Lexicon.jsx';
 import PreMortem from './components/PreMortem.jsx';
+import ScamLab from './components/ScamLab.jsx';
+import Scripts from './components/Scripts.jsx';
+import ShareCard from './components/ShareCard.jsx';
+import CommandPalette from './components/CommandPalette.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
 import Fuel from './components/Fuel.jsx';
@@ -31,6 +35,8 @@ export default function App() {
         <div className="hairline mx-auto max-w-7xl" />
         <Shield />
         <div className="hairline mx-auto max-w-7xl" />
+        <ScamLab />
+        <div className="hairline mx-auto max-w-7xl" />
         <Compass />
         <div className="hairline mx-auto max-w-7xl" />
         <PreMortem />
@@ -45,12 +51,17 @@ export default function App() {
         <div className="hairline mx-auto max-w-7xl" />
         <Lexicon />
         <div className="hairline mx-auto max-w-7xl" />
+        <Scripts />
+        <div className="hairline mx-auto max-w-7xl" />
+        <ShareCard />
+        <div className="hairline mx-auto max-w-7xl" />
         <PlanExport />
         <div className="hairline mx-auto max-w-7xl" />
         <Fuel />
         <Manifesto />
       </main>
       <Footer />
+      <CommandPalette />
       </div>
     </StoreProvider>
   );
