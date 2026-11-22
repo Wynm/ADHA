@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useStore } from '../lib/store.jsx';
 import { Reveal, SectionHeading } from './ui.jsx';
@@ -97,7 +97,7 @@ function recommend(answers) {
 
 export default function Compass() {
   const store = useStore();
-  const answers = store.compass || {};
+  const answers = useMemo(() => store.compass || {}, [store.compass]);
   const setAnswers = (fn) => {
     const next = typeof fn === 'function' ? fn(answers) : fn;
     store.setKey('compass', next);

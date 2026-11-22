@@ -24,7 +24,7 @@ export default function Tracker() {
   const s = useStore();
   const [selected, setSelected] = useState(() => new Date().toISOString().slice(0, 10));
   const days = useMemo(() => lastNDays(30), []);
-  const streak = s.streak || {};
+  const streak = useMemo(() => s.streak || {}, [s.streak]);
 
   // السلسلة الحالية: كم يوماً متتالياً مسجّلين حتى اليوم
   const currentStreak = useMemo(() => {

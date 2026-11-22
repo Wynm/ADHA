@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Area,
-  AreaChart,
   CartesianGrid,
   ComposedChart,
   Line,

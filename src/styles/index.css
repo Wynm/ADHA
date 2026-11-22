@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+:focus-visible {
+  outline: 2px solid #ff8a3d;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  inset-inline-start: 16px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 0 0 12px 12px;
+  background: #ff6b1a;
+  color: #170a02;
+  font-weight: 700;
+  font-size: 13px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 :root {
   --ink: #05060a;
   --panel: #0b0d14;

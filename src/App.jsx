@@ -15,6 +15,8 @@ import ScamLab from './components/ScamLab.jsx';
 import Scripts from './components/Scripts.jsx';
 import ShareCard from './components/ShareCard.jsx';
 import CommandPalette from './components/CommandPalette.jsx';
+import ScamGame from './components/ScamGame.jsx';
+import Onboarding from './components/Onboarding.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
 import Fuel from './components/Fuel.jsx';
@@ -25,6 +27,7 @@ export default function App() {
   return (
     <StoreProvider>
       <div className="noise relative min-h-screen bg-ink text-slate-200">
+      <a href="#arena" className="skip-link">تخطَّ إلى المحتوى</a>
       <Background />
       <Nav />
       <main className="relative z-10">
@@ -36,6 +39,8 @@ export default function App() {
         <Shield />
         <div className="hairline mx-auto max-w-7xl" />
         <ScamLab />
+        <div className="hairline mx-auto max-w-7xl" />
+        <ScamGame />
         <div className="hairline mx-auto max-w-7xl" />
         <Compass />
         <div className="hairline mx-auto max-w-7xl" />
@@ -62,6 +67,7 @@ export default function App() {
       </main>
       <Footer />
       <CommandPalette />
+      <Onboarding />
       </div>
     </StoreProvider>
   );
