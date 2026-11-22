@@ -23,6 +23,7 @@ import Platforms from './components/Platforms.jsx';
 import AssetVault from './components/AssetVault.jsx';
 import Curriculum from './components/Curriculum.jsx';
 import Journey from './components/Journey.jsx';
+import Rule from './components/Rule.jsx';
 import Faq from './components/Faq.jsx';
 import DecisionCard from './components/DecisionCard.jsx';
 import Review from './components/Review.jsx';
@@ -36,65 +37,65 @@ export default function App() {
   return (
     <StoreProvider>
       <div className="noise relative min-h-screen bg-ink text-slate-200">
-      <a href="#arena" className="skip-link">تخطَّ إلى المحتوى</a>
-      <Background />
-      <Nav />
-      <main className="relative z-10">
-        <Hero />
-        <Journey />
-        <div className="hairline mx-auto max-w-7xl" />
-        <DecisionCard />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Arena />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Suspense fallback={<div className="mx-auto max-w-7xl px-8 py-32 text-center text-[12px] text-slate-600">يُحمّل المحاكي…</div>}>
-          <Simulator />
-        </Suspense>
-        <div className="hairline mx-auto max-w-7xl" />
-        <Shield />
-        <div className="hairline mx-auto max-w-7xl" />
-        <ScamLab />
-        <div className="hairline mx-auto max-w-7xl" />
-        <ScamGame />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Compass />
-        <div className="hairline mx-auto max-w-7xl" />
-        <PreMortem />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Calc />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Purchasing />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Platforms />
-        <div className="hairline mx-auto max-w-7xl" />
-        <AssetVault />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Roadmap />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Curriculum />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Tracker />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Cases />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Lexicon />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Scripts />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Review />
-        <div className="hairline mx-auto max-w-7xl" />
-        <ShareCard />
-        <div className="hairline mx-auto max-w-7xl" />
-        <PlanExport />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Fuel />
-        <Manifesto />
-        <div className="hairline mx-auto max-w-7xl" />
-        <Faq />
-      </main>
-      <Footer />
-      <CommandPalette />
-      <Onboarding />
+        <a href="#decision" className="skip-link">تخطَّ إلى المحتوى</a>
+        <Background />
+        <Nav />
+        <main className="relative z-10">
+          <Hero />
+          <Journey />
+          <Rule />
+          <DecisionCard />
+          <Rule />
+          <Arena />
+          <Rule />
+          <Suspense fallback={<div className="mx-auto max-w-7xl px-8 py-32 text-center text-[12px] text-slate-600">يُحمّل المحاكي…</div>}>
+            <Simulator />
+          </Suspense>
+          <Rule />
+          <Shield />
+          <Rule />
+          <ScamLab />
+          <Rule />
+          <ScamGame />
+          <Rule />
+          <Compass />
+          <Rule />
+          <PreMortem />
+          <Rule />
+          <Calc />
+          <Rule />
+          <Purchasing />
+          <Rule />
+          <Platforms />
+          <Rule />
+          <AssetVault />
+          <Rule />
+          <Roadmap />
+          <Rule />
+          <Curriculum />
+          <Rule />
+          <Tracker />
+          <Rule />
+          <Review />
+          <Rule />
+          <Cases />
+          <Rule />
+          <Lexicon />
+          <Rule />
+          <Scripts />
+          <Rule />
+          <ShareCard />
+          <Rule />
+          <PlanExport />
+          <Rule />
+          <Fuel />
+          <Manifesto />
+          <Rule />
+          <Faq />
+        </main>
+        <Footer />
+        <CommandPalette />
+        <Onboarding />
       </div>
     </StoreProvider>
   );
