@@ -13,6 +13,8 @@ const ITEMS = [
   { id: 'calc', ar: 'الحساب العكسي', hint: 'Calc', keys: 'حاسبة هدف وحدات calc' },
   { id: 'platforms', ar: 'أين تبيع · الرسوم', hint: 'Platforms', keys: 'منصات رسوم فايفر مستقل platforms' },
   { id: 'purchasing', ar: 'قيمة المال · 1000$', hint: 'PPP', keys: 'عملة قيمة بلد شراء purchasing' },
+  { id: 'vault', ar: 'خزانة الأصول', hint: 'Assets', keys: 'أصول خزانة مهارة vault' },
+  { id: 'curriculum', ar: 'مسار التعلّم · 8 أسابيع', hint: 'Learn', keys: 'تعلّم مسار كورس curriculum' },
   { id: 'roadmap', ar: 'خريطة 90 يوماً', hint: 'Roadmap', keys: 'خطة مهام roadmap' },
   { id: 'tracker', ar: 'المتتبّع · 30 يوماً', hint: 'Tracker', keys: 'التزام سلسلة tracker' },
   { id: 'cases', ar: 'ملفات الحالات', hint: 'Cases', keys: 'حالات أمثلة cases' },
