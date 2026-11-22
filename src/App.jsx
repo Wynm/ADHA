@@ -24,6 +24,7 @@ import AssetVault from './components/AssetVault.jsx';
 import Curriculum from './components/Curriculum.jsx';
 import Journey from './components/Journey.jsx';
 import Faq from './components/Faq.jsx';
+import DecisionCard from './components/DecisionCard.jsx';
 import Review from './components/Review.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
@@ -41,6 +42,8 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <Journey />
+        <div className="hairline mx-auto max-w-7xl" />
+        <DecisionCard />
         <div className="hairline mx-auto max-w-7xl" />
         <Arena />
         <div className="hairline mx-auto max-w-7xl" />
