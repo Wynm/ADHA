@@ -21,6 +21,8 @@ import Purchasing from './components/Purchasing.jsx';
 import Platforms from './components/Platforms.jsx';
 import AssetVault from './components/AssetVault.jsx';
 import Curriculum from './components/Curriculum.jsx';
+import Journey from './components/Journey.jsx';
+import Review from './components/Review.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
 import Fuel from './components/Fuel.jsx';
@@ -36,6 +38,8 @@ export default function App() {
       <Nav />
       <main className="relative z-10">
         <Hero />
+        <Journey />
+        <div className="hairline mx-auto max-w-7xl" />
         <Arena />
         <div className="hairline mx-auto max-w-7xl" />
         <Simulator />
@@ -69,6 +73,8 @@ export default function App() {
         <Lexicon />
         <div className="hairline mx-auto max-w-7xl" />
         <Scripts />
+        <div className="hairline mx-auto max-w-7xl" />
+        <Review />
         <div className="hairline mx-auto max-w-7xl" />
         <ShareCard />
         <div className="hairline mx-auto max-w-7xl" />

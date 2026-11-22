@@ -2,11 +2,25 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '../lib/store.jsx';
 import { buildPlan, downloadPlan } from '../lib/plan.js';
+import { usePersistentState } from '../lib/hooks.js';
 import { Reveal, SectionHeading } from './ui.jsx';
 
 export default function PlanExport() {
   const s = useStore();
   const [copied, setCopied] = useState(false);
+  const [backupMsg, setBackupMsg] = useState('');
+  const [premortem] = usePersistentState('adha.premortem', {});
+  const [assets] = usePersistentState('adha.assets', {});
+  const [reviews] = usePersistentState('adha.reviews', []);
+  const [curriculum] = usePersistentState('adha.curriculum', {});
+  const [game] = usePersistentState('adha.game', { best: 0, plays: 0 });
+  const [name] = usePersistentState('adha.name', '');
+
+  const snapshot = useMemo(
+    () => ({ ...s, premortem, assets, reviews, curriculum, game, name, exportedAt: new Date().toISOString() }),
+    [s, premortem, assets, reviews, curriculum, game, name]
+  );
+
   const md = useMemo(() => buildPlan(s), [s]);
   const preview = md.split('\n').slice(0, 26).join('\n');
 
@@ -61,6 +75,59 @@ export default function PlanExport() {
             <button onClick={copy} className="btn btn-ghost w-full py-3 text-[12.5px]">
               {copied ? '✓ تم النسخ إلى الحافظة' : '⧉ انسخ النص كاملاً'}
             </button>
+
+            <div className="glass rounded-2xl p-4">
+              <div className="mono mb-2.5 text-[10px] uppercase tracking-[0.2em] text-slate-500">backup · نسخة احتياطية</div>
+              <p className="mb-2.5 text-[11px] leading-relaxed text-slate-500">
+                كل بياناتك محفوظة في متصفحك فقط. نزّل نسخة JSON لتستعيدها على جهاز آخر، أو قبل تنظيف المتصفح.
+              </p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `adha-backup-${new Date().toISOString().slice(0, 10)}.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    setTimeout(() => URL.revokeObjectURL(url), 2000);
+                    setBackupMsg('تم تنزيل نسخة احتياطية ✓');
+                    setTimeout(() => setBackupMsg(''), 2500);
+                  }}
+                  className="btn btn-ghost flex-1 py-2 text-[11.5px]"
+                >
+                  ⤓ تصدير JSON
+                </button>
+                <label className="btn btn-ghost flex-1 cursor-pointer py-2 text-[11.5px]">
+                  ⤒ استيراد
+                  <input
+                    type="file"
+                    accept="application/json"
+                    className="hidden"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      try {
+                        const data = JSON.parse(await file.text());
+                        if (data.premortem) localStorage.setItem('adha.premortem', JSON.stringify(data.premortem));
+                        if (data.assets) localStorage.setItem('adha.assets', JSON.stringify(data.assets));
+                        if (data.reviews) localStorage.setItem('adha.reviews', JSON.stringify(data.reviews));
+                        if (data.curriculum) localStorage.setItem('adha.curriculum', JSON.stringify(data.curriculum));
+                        if (data.name) localStorage.setItem('adha.name', JSON.stringify(data.name));
+                        setBackupMsg('تم الاستيراد — أعد تحميل الصفحة');
+                        setTimeout(() => setBackupMsg(''), 4000);
+                      } catch {
+                        setBackupMsg('ملف غير صالح');
+                        setTimeout(() => setBackupMsg(''), 2500);
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+              {backupMsg && <p className="mono mt-2 text-[10px] text-lime">{backupMsg}</p>}
+            </div>
 
             <div className="glass rounded-2xl p-4">
               <div className="mono mb-2.5 text-[10px] uppercase tracking-[0.2em] text-slate-500">ما تحتويه الوثيقة</div>
