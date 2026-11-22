@@ -11,6 +11,7 @@ const ITEMS = [
   { id: 'compass', ar: 'البوصلة · 4 أسئلة', hint: 'Compass', keys: 'بوصلة اختبار compass' },
   { id: 'premortem', ar: 'تشريح الفشل', hint: 'Pre-Mortem', keys: 'فشل خطر premortem' },
   { id: 'calc', ar: 'الحساب العكسي', hint: 'Calc', keys: 'حاسبة هدف وحدات calc' },
+  { id: 'purchasing', ar: 'قيمة المال · 1000$', hint: 'PPP', keys: 'عملة قيمة بلد شراء purchasing' },
   { id: 'roadmap', ar: 'خريطة 90 يوماً', hint: 'Roadmap', keys: 'خطة مهام roadmap' },
   { id: 'tracker', ar: 'المتتبّع · 30 يوماً', hint: 'Tracker', keys: 'التزام سلسلة tracker' },
   { id: 'cases', ar: 'ملفات الحالات', hint: 'Cases', keys: 'حالات أمثلة cases' },
