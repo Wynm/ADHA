@@ -74,6 +74,7 @@ export const STAGES = [
       { id: 'plan', ar: 'تصدير الخطة', note: 'ملف Markdown كامل' },
       { id: 'fuel', ar: 'الوقود مقابل الأصل', note: 'ما يبني وما لا يبني' },
       { id: 'manifesto', ar: 'البيان', note: '7 أسطر' },
+      { id: 'faq', ar: 'أسئلة الزائر', note: '10 إجابات صريحة' },
     ],
   },
 ];

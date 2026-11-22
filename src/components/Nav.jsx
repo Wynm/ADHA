@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const LINKS = [
+  { href: '#journey', ar: 'الرحلة', en: 'Journey' },
   { href: '#arena', ar: 'الساحة', en: 'Arena' },
   { href: '#simulator', ar: 'المحاكي', en: 'Simulator' },
   { href: '#shield', ar: 'الماسح', en: 'Scanner' },
