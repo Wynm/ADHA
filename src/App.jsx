@@ -1,9 +1,10 @@
 import { StoreProvider } from './lib/store.jsx';
+import { Suspense, lazy } from 'react';
 import Background from './components/Background.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Arena from './components/Arena.jsx';
-import Simulator from './components/Simulator.jsx';
+const Simulator = lazy(() => import('./components/Simulator.jsx'));
 import Shield from './components/Shield.jsx';
 import Compass from './components/Compass.jsx';
 import Tracker from './components/Tracker.jsx';
@@ -22,6 +23,7 @@ import Platforms from './components/Platforms.jsx';
 import AssetVault from './components/AssetVault.jsx';
 import Curriculum from './components/Curriculum.jsx';
 import Journey from './components/Journey.jsx';
+import Faq from './components/Faq.jsx';
 import Review from './components/Review.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
@@ -42,7 +44,9 @@ export default function App() {
         <div className="hairline mx-auto max-w-7xl" />
         <Arena />
         <div className="hairline mx-auto max-w-7xl" />
-        <Simulator />
+        <Suspense fallback={<div className="mx-auto max-w-7xl px-8 py-32 text-center text-[12px] text-slate-600">يُحمّل المحاكي…</div>}>
+          <Simulator />
+        </Suspense>
         <div className="hairline mx-auto max-w-7xl" />
         <Shield />
         <div className="hairline mx-auto max-w-7xl" />
@@ -82,6 +86,8 @@ export default function App() {
         <div className="hairline mx-auto max-w-7xl" />
         <Fuel />
         <Manifesto />
+        <div className="hairline mx-auto max-w-7xl" />
+        <Faq />
       </main>
       <Footer />
       <CommandPalette />

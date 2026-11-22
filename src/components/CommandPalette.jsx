@@ -26,6 +26,7 @@ const ITEMS = [
   { id: 'plan', ar: 'تصدير الخطة', hint: 'Plan', keys: 'تحميل تصدير خطة plan' },
   { id: 'fuel', ar: 'الوقود مقابل الأصل', hint: 'Fuel', keys: 'وقود أصل fuel' },
   { id: 'manifesto', ar: 'البيان', hint: 'Manifesto', keys: 'بيان manifesto' },
+  { id: 'faq', ar: 'أسئلة الزائر', hint: 'FAQ', keys: 'أسئلة faq' },
 ];
 
 export default function CommandPalette() {

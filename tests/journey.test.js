@@ -5,7 +5,7 @@ import { STAGES } from '../src/data/journey.js';
 const REAL_SECTIONS = [
   'compass', 'premortem', 'vault', 'shield', 'scamlab', 'game', 'arena', 'simulator',
   'calc', 'purchasing', 'platforms', 'curriculum', 'roadmap', 'tracker', 'scripts',
-  'review', 'cases', 'lexicon', 'share', 'plan', 'fuel', 'manifesto',
+  'review', 'cases', 'lexicon', 'share', 'plan', 'fuel', 'manifesto', 'faq',
 ];
 
 describe('journey map', () => {
