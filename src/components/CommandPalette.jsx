@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const ITEMS = [
   { id: 'top', ar: 'البداية', hint: 'Hero', keys: 'رئيسية بداية top' },
+  { id: 'journey', ar: 'الرحلة · فهرس الأقسام', hint: 'Journey', keys: 'فهرس رحلة خريطة موقع journey' },
   { id: 'arena', ar: 'الساحة · 8 مسارات', hint: 'Arena', keys: 'فرص مسارات arena' },
   { id: 'simulator', ar: 'المحاكي · 24 شهراً', hint: 'Simulator', keys: 'محاكي دخل حساب simulator' },
   { id: 'shield', ar: 'الماسح · فحص عرض', hint: 'Shield', keys: 'احتيال نصب فحص shield' },
@@ -21,6 +22,7 @@ const ITEMS = [
   { id: 'scripts', ar: 'بنك النصوص', hint: 'Scripts', keys: 'رسائل بريد نصوص scripts' },
   { id: 'lexicon', ar: 'المعجم · المصطلحات', hint: 'Lexicon', keys: 'مصطلحات معجم lexicon' },
   { id: 'share', ar: 'بطاقة المشاركة', hint: 'Share', keys: 'صورة مشاركة بطاقة share' },
+  { id: 'review', ar: 'المراجعة الأسبوعية', hint: 'Review', keys: 'مراجعة أسبوع review' },
   { id: 'plan', ar: 'تصدير الخطة', hint: 'Plan', keys: 'تحميل تصدير خطة plan' },
   { id: 'fuel', ar: 'الوقود مقابل الأصل', hint: 'Fuel', keys: 'وقود أصل fuel' },
   { id: 'manifesto', ar: 'البيان', hint: 'Manifesto', keys: 'بيان manifesto' },
