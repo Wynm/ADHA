@@ -8,8 +8,8 @@ export function useInView(options = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === 'undefined') {
-      setInView(true);
-      return;
+      const t = setTimeout(() => setInView(true), 0);
+      return () => clearTimeout(t);
     }
     const io = new IntersectionObserver(
       (entries) => {
@@ -74,10 +74,11 @@ export function usePersistentState(key, initial) {
 }
 
 export function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
+  const [reduced, setReduced] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  );
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
     const fn = (e) => setReduced(e.matches);
     mq.addEventListener?.('change', fn);
     return () => mq.removeEventListener?.('change', fn);

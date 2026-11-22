@@ -7,6 +7,7 @@ const ITEMS = [
   { id: 'simulator', ar: 'المحاكي · 24 شهراً', hint: 'Simulator', keys: 'محاكي دخل حساب simulator' },
   { id: 'shield', ar: 'الماسح · فحص عرض', hint: 'Shield', keys: 'احتيال نصب فحص shield' },
   { id: 'scamlab', ar: 'مختبر الاحتيال', hint: 'Scam Lab', keys: 'مختبر تجربة lab' },
+  { id: 'game', ar: 'لعبة نصب أم عمل', hint: 'Game', keys: 'لعبة اختبار game' },
   { id: 'compass', ar: 'البوصلة · 4 أسئلة', hint: 'Compass', keys: 'بوصلة اختبار compass' },
   { id: 'premortem', ar: 'تشريح الفشل', hint: 'Pre-Mortem', keys: 'فشل خطر premortem' },
   { id: 'calc', ar: 'الحساب العكسي', hint: 'Calc', keys: 'حاسبة هدف وحدات calc' },
@@ -40,11 +41,13 @@ export default function CommandPalette() {
   }, []);
 
   useEffect(() => {
-    if (open) {
+    if (!open) return;
+    const t = setTimeout(() => {
       setQ('');
       setIdx(0);
-      setTimeout(() => inputRef.current?.focus(), 60);
-    }
+      inputRef.current?.focus();
+    }, 40);
+    return () => clearTimeout(t);
   }, [open]);
 
   const results = useMemo(() => {
