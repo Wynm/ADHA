@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useStore } from '../lib/store.jsx';
 import { Reveal, SectionHeading } from './ui.jsx';
 
 const QUESTIONS = [
@@ -95,7 +96,12 @@ function recommend(answers) {
 }
 
 export default function Compass() {
-  const [answers, setAnswers] = useState({});
+  const store = useStore();
+  const answers = store.compass || {};
+  const setAnswers = (fn) => {
+    const next = typeof fn === 'function' ? fn(answers) : fn;
+    store.setKey('compass', next);
+  };
   const done = Object.keys(answers).length === QUESTIONS.length;
   const pathId = useMemo(() => (done ? recommend(answers) : null), [answers, done]);
   const path = pathId ? PATHS[pathId] : null;

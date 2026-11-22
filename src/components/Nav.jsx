@@ -4,7 +4,11 @@ const LINKS = [
   { href: '#arena', ar: 'الساحة', en: 'Arena' },
   { href: '#simulator', ar: 'المحاكي', en: 'Simulator' },
   { href: '#shield', ar: 'الماسح', en: 'Scanner' },
+  { href: '#compass', ar: 'البوصلة', en: 'Compass' },
+  { href: '#premortem', ar: 'تشريح الفشل', en: 'Pre-Mortem' },
   { href: '#roadmap', ar: 'الخريطة', en: 'Roadmap' },
+  { href: '#tracker', ar: 'المتتبّع', en: 'Tracker' },
+  { href: '#plan', ar: 'الخطة', en: 'Plan' },
   { href: '#fuel', ar: 'الوقود', en: 'Fuel' },
   { href: '#manifesto', ar: 'البيان', en: 'Manifesto' },
 ];

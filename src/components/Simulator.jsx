@@ -14,6 +14,7 @@ import {
   YAxis,
 } from 'recharts';
 import { HOURS_PRESETS, TRACKS, compareAll, hypeCurve, simulate } from '../lib/simulator.js';
+import { useStore } from '../lib/store.jsx';
 import { fmt, Reveal, SectionHeading } from './ui.jsx';
 
 const COLORS = ['#ff6b1a', '#22d3ee', '#a3e635', '#c084fc'];
@@ -36,8 +37,11 @@ function Tip({ active, payload, label }) {
 }
 
 export default function Simulator() {
-  const [trackId, setTrackId] = useState('freelance');
-  const [hours, setHours] = useState(15);
+  const store = useStore();
+  const trackId = store.trackId;
+  const hours = store.hours;
+  const setTrackId = (v) => store.setKey('trackId', v);
+  const setHours = (v) => store.setKey('hours', v);
   const [view, setView] = useState('cumulative');
   const [showHype, setShowHype] = useState(false);
 
