@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ANTI_PATTERNS, PHASES } from '../data/roadmap.js';
-import { usePersistentState } from '../lib/hooks.js';
+import { useStore } from '../lib/store.jsx';
 import { Reveal, SectionHeading } from './ui.jsx';
 
 export default function Roadmap() {
   const [openPhase, setOpenPhase] = useState(PHASES[0].id);
-  const [done, setDone] = usePersistentState('adha.tasks', {});
+  const store = useStore();
+  const done = store.tasks || {};
+  const setDone = (v) => store.setKey('tasks', typeof v === 'function' ? v(done) : v);
 
-  const toggle = (phaseId, d) => {
-    const key = `${phaseId}:${d}`;
-    setDone((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  const toggle = (phaseId, d) => store.toggleTask(`${phaseId}:${d}`);
 
   const totalDone = Object.values(done).filter(Boolean).length;
   const totalTasks = PHASES.reduce((s, p) => s + p.tasks.length, 0);
