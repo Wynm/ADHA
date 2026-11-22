@@ -3,7 +3,7 @@ import { STAGES } from '../src/data/journey.js';
 
 // كل معرف قسم موجود فعلاً في الصفحة
 const REAL_SECTIONS = [
-  'compass', 'premortem', 'vault', 'shield', 'scamlab', 'game', 'arena', 'simulator',
+  'decision', 'compass', 'premortem', 'vault', 'shield', 'scamlab', 'game', 'arena', 'simulator',
   'calc', 'purchasing', 'platforms', 'curriculum', 'roadmap', 'tracker', 'scripts',
   'review', 'cases', 'lexicon', 'share', 'plan', 'fuel', 'manifesto', 'faq',
 ];
