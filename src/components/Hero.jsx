@@ -5,7 +5,7 @@ import CommandDeck from './CommandDeck.jsx';
 const STATS = [
   { value: 8, suffix: '', label: 'مسارات ربح حقيقية', sub: 'مصنّفة بالمخاطرة والزمن' },
   { value: 24, suffix: '', label: 'شهراً في المحاكي', sub: 'منحنى دخل لا صورة' },
-  { value: 10, suffix: '', label: 'قواعد كشف احتيال', sub: 'كل قاعدة بشرحها' },
+  { value: 16, suffix: '', label: 'بطاقة احتيال للتدريب', sub: 'قرار + إشارة + قاعدة' },
   { value: 90, suffix: '', label: 'يوماً في الخريطة', sub: 'مهام بمعايير قياس' },
 ];
 
@@ -41,7 +41,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
               </span>
-              v1.0 · بنيتُ بالعربية أولاً
+              v11 · 22 قسماً · 73 اختباراً · صفر خوادم
             </motion.div>
 
             <motion.h1
@@ -73,12 +73,12 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
-              <a href="#simulator" className="btn btn-primary px-6 py-3 text-sm">
-                جرّب المحاكي الآن
+              <a href="#decision" className="btn btn-primary px-6 py-3 text-sm">
+                اعرف أين أنت الآن
                 <span aria-hidden>←</span>
               </a>
-              <a href="#shield" className="btn btn-ghost px-6 py-3 text-sm">
-                افحص عرضاً مشبوهاً
+              <a href="#game" className="btn btn-ghost px-6 py-3 text-sm">
+                العب: نصب أم عمل؟
               </a>
               <span className="mono hidden text-[11px] text-slate-600 sm:inline">// لا تسجيل. لا تتبّع. يعمل في المتصفح.</span>
             </motion.div>
