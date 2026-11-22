@@ -7,7 +7,7 @@
 ```bash
 npm install
 npm run dev      # التطوير
-npm run verify   # lint + 73 اختباراً + build — يجب أن ينجح قبل أي PR
+npm run verify   # lint + 79 اختباراً + build — يجب أن ينجح قبل أي PR
 ```
 
 ## أين تضيف؟
