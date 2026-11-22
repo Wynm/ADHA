@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      pages: ${{ steps.pages.outputs.ok }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,17 +26,37 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run lint
       - run: npm test
       - run: npm run build
       - name: Add .nojekyll
         run: touch dist/.nojekyll
+      - name: Detect Pages availability
+        id: pages
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if curl -sf -H "Authorization: Bearer $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$GITHUB_REPOSITORY/pages" > /dev/null; then
+            echo "ok=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Pages not enabled (skip deploy)
+        if: steps.pages.outputs.ok != '1'
+        run: |
+          echo "::notice title=Pages disabled::Enable Settings → Pages → Source: GitHub Actions to publish this site."
       - uses: actions/configure-pages@v5
+        if: steps.pages.outputs.ok == '1'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.ok == '1'
         with:
           path: dist
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages == '1'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

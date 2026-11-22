@@ -30,6 +30,18 @@ jobs:
         run: npm test
       - name: Production build
         run: npm run build
+      - name: Smoke test the built site
+        run: |
+          npx --yes serve dist -l 4173 >/dev/null 2>&1 &
+          SERVER_PID=$!
+          for i in $(seq 1 20); do
+            if curl -sf http://127.0.0.1:4173/ > /tmp/index.html; then break; fi
+            sleep 1
+          done
+          kill $SERVER_PID || true
+          grep -q 'ساحة الفرص' /tmp/index.html
+          grep -q 'manifest' /tmp/index.html
+          echo "smoke ok"
       - name: Verify build artefacts
         run: |
           test -f dist/index.html

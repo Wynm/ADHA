@@ -18,6 +18,7 @@ import CommandPalette from './components/CommandPalette.jsx';
 import ScamGame from './components/ScamGame.jsx';
 import Onboarding from './components/Onboarding.jsx';
 import Purchasing from './components/Purchasing.jsx';
+import Platforms from './components/Platforms.jsx';
 import Calc from './components/Calc.jsx';
 import Roadmap from './components/Roadmap.jsx';
 import Fuel from './components/Fuel.jsx';
@@ -50,6 +51,8 @@ export default function App() {
         <Calc />
         <div className="hairline mx-auto max-w-7xl" />
         <Purchasing />
+        <div className="hairline mx-auto max-w-7xl" />
+        <Platforms />
         <div className="hairline mx-auto max-w-7xl" />
         <Roadmap />
         <div className="hairline mx-auto max-w-7xl" />
