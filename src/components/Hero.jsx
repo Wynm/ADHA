@@ -41,7 +41,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
               </span>
-              v11 · 22 قسماً · 73 اختباراً · صفر خوادم
+              v1.0 · 23 قسماً · 79 اختباراً · صفر خوادم
             </motion.div>
 
             <motion.h1
